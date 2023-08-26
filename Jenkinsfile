@@ -45,10 +45,10 @@ pipeline {
                 sh 'docker push bestedeki/spring-boot-mongo'
             }
         }
-        stage('Deploy to Tomcat'){
+        stage('Kubernetes Deployment'){
             steps{
-                echo 'Running a Tomcat container off mywebapp docker image'
-                /*sh 'docker run --name mywebapp -d -p 3100:8080 bestedeki/mywebapp'*/
+                echo 'Deploying to Kubernetes cluster'
+                sh 'kubectl apply -f springBootMongo.yaml'
                 echo 'Deployment done'
             }
         }
