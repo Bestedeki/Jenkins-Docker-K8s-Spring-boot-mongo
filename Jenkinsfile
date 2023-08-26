@@ -48,7 +48,7 @@ pipeline {
         stage('Kubernetes Deployment'){
             steps{
                 echo 'Deploying to Kubernetes cluster'
-                sh 'kubectl apply -f springBootMongo.yaml'
+                sh 'kubectl apply -f springBootMongo.yml'
                 echo 'Deployment done'
             }
         }
