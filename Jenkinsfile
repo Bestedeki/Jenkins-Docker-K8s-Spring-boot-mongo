@@ -10,7 +10,7 @@ pipeline {
         stage('Build with Maven') {
             steps{
                 echo 'Building with Maven'
-                git branch: 'main', credentialsId: 'Git_Cred', url: 'https://github.com/Bestedeki/Jenkins-Docker-K8s-Spring-boot-mongo.git'
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'Git_Cred', url: 'https://github.com/Bestedeki/Jenkins-Docker-K8s-Spring-boot-mongo.git']])
                 sh 'mvn clean package'
                 echo 'Building done'
             }
